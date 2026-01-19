@@ -1,11 +1,17 @@
 plugins {
     kotlin("jvm")
-    id("org.springframework.boot") version "3.2.0" apply false
-    id("io.spring.dependency-management") version "1.1.0" apply false
+    id("io.spring.dependency-management") version "1.1.0"
 }
 
 repositories {
     mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        // Alinea con la versión de Spring Boot usada en el root
+        mavenBom("org.springframework.boot:spring-boot-dependencies:3.2.0")
+    }
 }
 
 dependencies {
